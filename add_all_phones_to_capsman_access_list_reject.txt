@@ -1,0 +1,16 @@
+:foreach i in=[/ip dhcp-server lease find] do={
+ :local mac [/ip dhcp-server lease get $i mac-address];
+ :local name [/ip dhcp-server lease get $i host-name];
+ 
+ :if ( [:pick $name 0 7] = "android" ) do={
+ 	[/caps-man access-list add action=reject mac-address=$mac];
+ 	:put "android";
+ 	:put $mac;
+ }
+
+  :if ( [:pick $name 0 6] = "iPhone" ) do={
+ 	[/caps-man access-list add action=reject mac-address=$mac];
+	:put "iphone";
+ 	:put $mac;
+ }
+}
