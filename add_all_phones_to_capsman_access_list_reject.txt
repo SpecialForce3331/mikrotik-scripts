@@ -20,4 +20,8 @@
  :if ( [:pick $name 0 4] = "iPad" ) do={
  	$checkAccessList mac=$mac name="iPad" 
  }
+
+ :if ( [:pick $name 0 13] = "Windows-Phone" ) do={
+ 	$checkAccessList mac=$mac name="Windows-Phone" 
+ }
 }
