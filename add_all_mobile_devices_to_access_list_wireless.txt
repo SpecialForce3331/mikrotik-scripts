@@ -9,15 +9,15 @@
  :local mac [/ip dhcp-server lease get $i mac-address];
  :local name [/ip dhcp-server lease get $i host-name];
  
- :if ( [:pick $name 0 7] = "android" ) do={
+ :if ( [:find $name "android"] > -1 ) do={
  	$checkAccessList mac=$mac name="Android"
  }
 
- :if ( [:pick $name 0 6] = "iPhone" ) do={
+ :if ( [:find $name "iPhone"] > -1 ) do={
  	$checkAccessList mac=$mac name="iPhone" 
  }
 
- :if ( [:pick $name 0 4] = "iPad" ) do={
+ :if ( [:find $name "iPad"] > -1 ) do={
  	$checkAccessList mac=$mac name="iPad" 
  }
  
@@ -25,7 +25,7 @@
  	$checkAccessList mac=$mac name="iPad" 
  }
 
- :if ( [:pick $name 0 13] = "Windows-Phone" ) do={
+ :if ( [:find $name "Windows-Phone"] > -1 ) do={
  	$checkAccessList mac=$mac name="Windows-Phone" 
  }
 }
