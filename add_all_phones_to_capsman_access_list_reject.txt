@@ -22,7 +22,7 @@
  }
  
  :if ( [:find $name "iPod"] > -1 ) do={
- 	$checkAccessList mac=$mac name="iPad" 
+ 	$checkAccessList mac=$mac name="iPod" 
  }
 
  :if ( [:find $name "Windows-Phone"] > -1 ) do={
